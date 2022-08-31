@@ -91,9 +91,13 @@ function initMap(el, data, accessData) {
             longitude = -70.965421;
             zoom = 1;
         } else if (data["name"] === "Esri.AntarcticBasemap") {
-            latitude = 82.8628; // Arctic ocean
+            latitude = 82.8628; // Antarctic ocean
             longitude = 135.0;
             zoom = 6;
+        } else if (basemap == 'GeoportailFrance'){
+            latitude = 46.749998;
+            longitude = 1.85;
+            zoom = 6
         } else if (basemap === "OpenFireMap" || basemap === "OpenSeaMap") {
             latitude = 50.1109; // Frankfurt
             longitude = 8.6821;
@@ -114,6 +118,7 @@ function initMap(el, data, accessData) {
             latitude = 32.7766642; // Dallas
             longitude = -96.7969879;
             zoom = 10;
+
         } else if (
             basemap === "OpenWeatherMap" ||
             basemap === "Esri" ||
@@ -260,9 +265,9 @@ function initLeafletGallery(el) {
                     newData = val;
 
                     for ([newKey, newVal] of Object.entries(newData)) {
-                        if (newVal["bounds"] !== undefined) {
+                        /*if (newVal["bounds"] !== undefined) {
                             newVal["bounds"] = undefined;
-                        }
+                        }*/
                         dataList.push(newVal);
                     }
                 } else {
